@@ -1,0 +1,90 @@
+syntax = "proto3";
+option java_package = "com.smarttrader.broker.price.stresstest.dto.proto";
+option java_outer_classname = "BrokerFeedEventStructures";
+
+message Event{
+  Type       type = 1;
+  Market     market = 2;
+  string     brokerId = 3;
+  string     symbol = 4;
+  int64      time = 5;
+  OrderBooks orderBooks = 6;
+  Candle     candle = 7;
+  Quote      quote = 8;
+  MarketData marketData = 9;
+  LastTrade  lastTrade = 10;
+
+  enum Type{
+    Quote = 0;
+    Candle = 1;
+    MarketData = 2;
+    OrderBook = 3;
+    LastTrade = 4;
+  }
+
+  enum Market{
+    Forex = 0;
+    Stock = 1;
+    Crypto = 2;
+  }
+}
+
+message LastTrade{
+  double price = 1;
+  double volume = 2;
+}
+
+message MarketData{
+  repeated MarketDataType marketDataType = 1;
+  repeated double         values = 2;
+
+  enum MarketDataType{
+    HighLow = 0;
+  }
+}
+
+message OrderBooks{
+  repeated OrderBook asks = 1;
+  repeated OrderBook bids = 2;
+}
+
+message OrderBook{
+  double price = 1;
+  double amount = 2;
+}
+
+message Quote{
+  double bid = 1;
+  optional double bidSize = 2;
+  double ask = 3;
+  optional double askSize = 4;
+}
+
+message Candle{
+  Period period = 1;
+  double open = 2;
+  double high = 3;
+  double low = 4;
+  double close = 5;
+  double volume = 6;
+  int64 time = 7;
+  int32 count = 8;
+
+  enum Period{
+    M0 = 0;
+    M1 = 1;
+    M5 = 5;
+    M10 = 10;
+    M15 = 15;
+    M30 = 30;
+    H1 = 60;
+    H2 = 120;
+    H3 = 180;
+    H4 = 240;
+    H8 = 480;
+    D1 = 1440;
+    D7 = 10080;
+    MONTH = 43200;
+    YEAR = 525600;
+  }
+}

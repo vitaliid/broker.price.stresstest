@@ -1,0 +1,8 @@
+enabled: false
+brokers:
+  - brokerId: 1
+    type: 2
+    account: 2018306578
+    password: eb3dkxj
+    host: demoapi.forexware.com
+    port: 50051

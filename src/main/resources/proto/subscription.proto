@@ -1,0 +1,20 @@
+syntax = "proto3";
+option java_package = "com.smarttrader.broker.price.stresstest.dto.proto";
+option java_outer_classname = "SubscriptionStructures";
+
+message SubscriptionRequest{
+  repeated Contract contract = 1;
+}
+message Contract{
+  int64     account = 1;
+  int64     brokerId = 2;
+  string    symbol = 3;
+}
+message SubscriptionResponse{
+  repeated SubscriptionResult subscriptionResult = 1;
+}
+message SubscriptionResult{
+  Contract contract = 1;
+  bool error = 2;
+  string message = 3;
+}
