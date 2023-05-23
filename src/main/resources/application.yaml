@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: com.smarttrader.broker.price.stresstest
+  config:
+    import: classpath:subscriptions.yaml
+
+server:
+  port: 8081
+app:
+  security:
+    token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMDEwOTc4OSIsInJvbGUiOiJUUkFERVIiLCJpc3MiOiJhdXRoLWxpZ2h0LmF1dGhlbnRpY2F0ZWQtdHJhZGVyIiwiaWF0IjoxNjg0ODUyMTc4LCJleHAiOjE2ODU0NTY5Nzh9.NG_ftfC7B_7h-ZRXnNKyxkdcwLdSgdI5EGYTDRY0dSuM0k-u-rLVW0kiRVIo_VaZpixJ6-EtQj9uTxGDP-JWlQ

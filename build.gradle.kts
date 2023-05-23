@@ -22,6 +22,8 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
 
+    implementation("com.google.protobuf:protobuf-java:3.22.2")
+
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
 
