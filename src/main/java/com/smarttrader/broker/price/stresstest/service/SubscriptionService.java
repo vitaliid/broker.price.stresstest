@@ -54,6 +54,6 @@ public class SubscriptionService {
                                     log.error("Error happened", throwable);
                                 })
                                 .then())
-                .block();
+                .subscribe();
     }
 }
