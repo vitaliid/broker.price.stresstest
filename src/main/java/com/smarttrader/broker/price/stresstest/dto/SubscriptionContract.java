@@ -1,4 +1,4 @@
-package com.smarttrader.broker.price.stresstest.dto.proto;
+package com.smarttrader.broker.price.stresstest.dto;
 
 import lombok.Data;
 

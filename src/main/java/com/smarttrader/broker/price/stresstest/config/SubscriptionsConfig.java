@@ -1,7 +1,7 @@
 package com.smarttrader.broker.price.stresstest.config;
 
 
-import com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionContract;
+import com.smarttrader.broker.price.stresstest.dto.SubscriptionContract;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
