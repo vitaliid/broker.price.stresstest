@@ -19,25 +19,37 @@ public final class SubscriptionStructures {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .Contract contract = 1;</code>
+     * <code>string tid = 1;</code>
+     * @return The tid.
+     */
+    java.lang.String getTid();
+    /**
+     * <code>string tid = 1;</code>
+     * @return The bytes for tid.
+     */
+    com.google.protobuf.ByteString
+        getTidBytes();
+
+    /**
+     * <code>repeated .Contract contract = 2;</code>
      */
     java.util.List<com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract> 
         getContractList();
     /**
-     * <code>repeated .Contract contract = 1;</code>
+     * <code>repeated .Contract contract = 2;</code>
      */
     com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract getContract(int index);
     /**
-     * <code>repeated .Contract contract = 1;</code>
+     * <code>repeated .Contract contract = 2;</code>
      */
     int getContractCount();
     /**
-     * <code>repeated .Contract contract = 1;</code>
+     * <code>repeated .Contract contract = 2;</code>
      */
     java.util.List<? extends com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.ContractOrBuilder> 
         getContractOrBuilderList();
     /**
-     * <code>repeated .Contract contract = 1;</code>
+     * <code>repeated .Contract contract = 2;</code>
      */
     com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.ContractOrBuilder getContractOrBuilder(
         int index);
@@ -55,6 +67,7 @@ public final class SubscriptionStructures {
       super(builder);
     }
     private SubscriptionRequest() {
+      tid_ = "";
       contract_ = java.util.Collections.emptyList();
     }
 
@@ -78,18 +91,57 @@ public final class SubscriptionStructures {
               com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionRequest.class, com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionRequest.Builder.class);
     }
 
-    public static final int CONTRACT_FIELD_NUMBER = 1;
+    public static final int TID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object tid_ = "";
+    /**
+     * <code>string tid = 1;</code>
+     * @return The tid.
+     */
+    @java.lang.Override
+    public java.lang.String getTid() {
+      java.lang.Object ref = tid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        tid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string tid = 1;</code>
+     * @return The bytes for tid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTidBytes() {
+      java.lang.Object ref = tid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CONTRACT_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
     private java.util.List<com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract> contract_;
     /**
-     * <code>repeated .Contract contract = 1;</code>
+     * <code>repeated .Contract contract = 2;</code>
      */
     @java.lang.Override
     public java.util.List<com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract> getContractList() {
       return contract_;
     }
     /**
-     * <code>repeated .Contract contract = 1;</code>
+     * <code>repeated .Contract contract = 2;</code>
      */
     @java.lang.Override
     public java.util.List<? extends com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.ContractOrBuilder> 
@@ -97,21 +149,21 @@ public final class SubscriptionStructures {
       return contract_;
     }
     /**
-     * <code>repeated .Contract contract = 1;</code>
+     * <code>repeated .Contract contract = 2;</code>
      */
     @java.lang.Override
     public int getContractCount() {
       return contract_.size();
     }
     /**
-     * <code>repeated .Contract contract = 1;</code>
+     * <code>repeated .Contract contract = 2;</code>
      */
     @java.lang.Override
     public com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract getContract(int index) {
       return contract_.get(index);
     }
     /**
-     * <code>repeated .Contract contract = 1;</code>
+     * <code>repeated .Contract contract = 2;</code>
      */
     @java.lang.Override
     public com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.ContractOrBuilder getContractOrBuilder(
@@ -133,8 +185,11 @@ public final class SubscriptionStructures {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tid_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tid_);
+      }
       for (int i = 0; i < contract_.size(); i++) {
-        output.writeMessage(1, contract_.get(i));
+        output.writeMessage(2, contract_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -145,9 +200,12 @@ public final class SubscriptionStructures {
       if (size != -1) return size;
 
       size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tid_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tid_);
+      }
       for (int i = 0; i < contract_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, contract_.get(i));
+          .computeMessageSize(2, contract_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -164,6 +222,8 @@ public final class SubscriptionStructures {
       }
       com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionRequest other = (com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionRequest) obj;
 
+      if (!getTid()
+          .equals(other.getTid())) return false;
       if (!getContractList()
           .equals(other.getContractList())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -177,6 +237,8 @@ public final class SubscriptionStructures {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TID_FIELD_NUMBER;
+      hash = (53 * hash) + getTid().hashCode();
       if (getContractCount() > 0) {
         hash = (37 * hash) + CONTRACT_FIELD_NUMBER;
         hash = (53 * hash) + getContractList().hashCode();
@@ -230,11 +292,13 @@ public final class SubscriptionStructures {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -310,13 +374,14 @@ public final class SubscriptionStructures {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
+        tid_ = "";
         if (contractBuilder_ == null) {
           contract_ = java.util.Collections.emptyList();
         } else {
           contract_ = null;
           contractBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -351,9 +416,9 @@ public final class SubscriptionStructures {
 
       private void buildPartialRepeatedFields(com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionRequest result) {
         if (contractBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             contract_ = java.util.Collections.unmodifiableList(contract_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.contract_ = contract_;
         } else {
@@ -363,8 +428,43 @@ public final class SubscriptionStructures {
 
       private void buildPartial0(com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionRequest result) {
         int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.tid_ = tid_;
+        }
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionRequest) {
@@ -377,11 +477,16 @@ public final class SubscriptionStructures {
 
       public Builder mergeFrom(com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionRequest other) {
         if (other == com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionRequest.getDefaultInstance()) return this;
+        if (!other.getTid().isEmpty()) {
+          tid_ = other.tid_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
         if (contractBuilder_ == null) {
           if (!other.contract_.isEmpty()) {
             if (contract_.isEmpty()) {
               contract_ = other.contract_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureContractIsMutable();
               contract_.addAll(other.contract_);
@@ -394,7 +499,7 @@ public final class SubscriptionStructures {
               contractBuilder_.dispose();
               contractBuilder_ = null;
               contract_ = other.contract_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               contractBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getContractFieldBuilder() : null;
@@ -430,6 +535,11 @@ public final class SubscriptionStructures {
                 done = true;
                 break;
               case 10: {
+                tid_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
                 com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract m =
                     input.readMessage(
                         com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract.parser(),
@@ -441,7 +551,7 @@ public final class SubscriptionStructures {
                   contractBuilder_.addMessage(m);
                 }
                 break;
-              } // case 10
+              } // case 18
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -459,12 +569,84 @@ public final class SubscriptionStructures {
       }
       private int bitField0_;
 
+      private java.lang.Object tid_ = "";
+      /**
+       * <code>string tid = 1;</code>
+       * @return The tid.
+       */
+      public java.lang.String getTid() {
+        java.lang.Object ref = tid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          tid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string tid = 1;</code>
+       * @return The bytes for tid.
+       */
+      public com.google.protobuf.ByteString
+          getTidBytes() {
+        java.lang.Object ref = tid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string tid = 1;</code>
+       * @param value The tid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTid(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        tid_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string tid = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTid() {
+        tid_ = getDefaultInstance().getTid();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string tid = 1;</code>
+       * @param value The bytes for tid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        tid_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
       private java.util.List<com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract> contract_ =
         java.util.Collections.emptyList();
       private void ensureContractIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           contract_ = new java.util.ArrayList<com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract>(contract_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -472,7 +654,7 @@ public final class SubscriptionStructures {
           com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract, com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract.Builder, com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.ContractOrBuilder> contractBuilder_;
 
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public java.util.List<com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract> getContractList() {
         if (contractBuilder_ == null) {
@@ -482,7 +664,7 @@ public final class SubscriptionStructures {
         }
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public int getContractCount() {
         if (contractBuilder_ == null) {
@@ -492,7 +674,7 @@ public final class SubscriptionStructures {
         }
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract getContract(int index) {
         if (contractBuilder_ == null) {
@@ -502,7 +684,7 @@ public final class SubscriptionStructures {
         }
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public Builder setContract(
           int index, com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract value) {
@@ -519,7 +701,7 @@ public final class SubscriptionStructures {
         return this;
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public Builder setContract(
           int index, com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract.Builder builderForValue) {
@@ -533,7 +715,7 @@ public final class SubscriptionStructures {
         return this;
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public Builder addContract(com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract value) {
         if (contractBuilder_ == null) {
@@ -549,7 +731,7 @@ public final class SubscriptionStructures {
         return this;
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public Builder addContract(
           int index, com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract value) {
@@ -566,7 +748,7 @@ public final class SubscriptionStructures {
         return this;
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public Builder addContract(
           com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract.Builder builderForValue) {
@@ -580,7 +762,7 @@ public final class SubscriptionStructures {
         return this;
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public Builder addContract(
           int index, com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract.Builder builderForValue) {
@@ -594,7 +776,7 @@ public final class SubscriptionStructures {
         return this;
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public Builder addAllContract(
           java.lang.Iterable<? extends com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract> values) {
@@ -609,12 +791,12 @@ public final class SubscriptionStructures {
         return this;
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public Builder clearContract() {
         if (contractBuilder_ == null) {
           contract_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           contractBuilder_.clear();
@@ -622,7 +804,7 @@ public final class SubscriptionStructures {
         return this;
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public Builder removeContract(int index) {
         if (contractBuilder_ == null) {
@@ -635,14 +817,14 @@ public final class SubscriptionStructures {
         return this;
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract.Builder getContractBuilder(
           int index) {
         return getContractFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.ContractOrBuilder getContractOrBuilder(
           int index) {
@@ -652,7 +834,7 @@ public final class SubscriptionStructures {
         }
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public java.util.List<? extends com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.ContractOrBuilder> 
            getContractOrBuilderList() {
@@ -663,14 +845,14 @@ public final class SubscriptionStructures {
         }
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract.Builder addContractBuilder() {
         return getContractFieldBuilder().addBuilder(
             com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract.getDefaultInstance());
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract.Builder addContractBuilder(
           int index) {
@@ -678,7 +860,7 @@ public final class SubscriptionStructures {
             index, com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract.getDefaultInstance());
       }
       /**
-       * <code>repeated .Contract contract = 1;</code>
+       * <code>repeated .Contract contract = 2;</code>
        */
       public java.util.List<com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract.Builder> 
            getContractBuilderList() {
@@ -691,7 +873,7 @@ public final class SubscriptionStructures {
           contractBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract, com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract.Builder, com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.ContractOrBuilder>(
                   contract_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           contract_ = null;
@@ -1019,11 +1201,13 @@ public final class SubscriptionStructures {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1146,6 +1330,38 @@ public final class SubscriptionStructures {
         }
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract) {
@@ -1642,11 +1858,13 @@ public final class SubscriptionStructures {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1777,6 +1995,38 @@ public final class SubscriptionStructures {
         int from_bitField0_ = bitField0_;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionResponse) {
@@ -2247,6 +2497,7 @@ public final class SubscriptionStructures {
               com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionResult.class, com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionResult.Builder.class);
     }
 
+    private int bitField0_;
     public static final int CONTRACT_FIELD_NUMBER = 1;
     private com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.Contract contract_;
     /**
@@ -2255,7 +2506,7 @@ public final class SubscriptionStructures {
      */
     @java.lang.Override
     public boolean hasContract() {
-      return contract_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.Contract contract = 1;</code>
@@ -2337,7 +2588,7 @@ public final class SubscriptionStructures {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (contract_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(1, getContract());
       }
       if (error_ != false) {
@@ -2355,7 +2606,7 @@ public final class SubscriptionStructures {
       if (size != -1) return size;
 
       size = 0;
-      if (contract_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getContract());
       }
@@ -2459,11 +2710,13 @@ public final class SubscriptionStructures {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionResult parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionResult parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2527,13 +2780,19 @@ public final class SubscriptionStructures {
 
       // Construct using com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionResult.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getContractFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -2579,10 +2838,12 @@ public final class SubscriptionStructures {
 
       private void buildPartial0(com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionResult result) {
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.contract_ = contractBuilder_ == null
               ? contract_
               : contractBuilder_.build();
+          to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.error_ = error_;
@@ -2590,8 +2851,41 @@ public final class SubscriptionStructures {
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.message_ = message_;
         }
+        result.bitField0_ |= to_bitField0_;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.smarttrader.broker.price.stresstest.dto.proto.SubscriptionStructures.SubscriptionResult) {
@@ -2741,8 +3035,10 @@ public final class SubscriptionStructures {
         } else {
           contractBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+        if (contract_ != null) {
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
         return this;
       }
       /**
@@ -2991,16 +3287,16 @@ public final class SubscriptionStructures {
   static {
     java.lang.String[] descriptorData = {
       "\n+src/main/resources/proto/subscription." +
-      "proto\"2\n\023SubscriptionRequest\022\033\n\010contract" +
-      "\030\001 \003(\0132\t.Contract\"=\n\010Contract\022\017\n\007account" +
-      "\030\001 \001(\003\022\020\n\010brokerId\030\002 \001(\003\022\016\n\006symbol\030\003 \001(\t" +
-      "\"G\n\024SubscriptionResponse\022/\n\022subscription" +
-      "Result\030\001 \003(\0132\023.SubscriptionResult\"Q\n\022Sub" +
-      "scriptionResult\022\033\n\010contract\030\001 \001(\0132\t.Cont" +
-      "ract\022\r\n\005error\030\002 \001(\010\022\017\n\007message\030\003 \001(\tBK\n1" +
-      "com.smarttrader.broker.price.stresstest." +
-      "dto.protoB\026SubscriptionStructuresb\006proto" +
-      "3"
+      "proto\"?\n\023SubscriptionRequest\022\013\n\003tid\030\001 \001(" +
+      "\t\022\033\n\010contract\030\002 \003(\0132\t.Contract\"=\n\010Contra" +
+      "ct\022\017\n\007account\030\001 \001(\003\022\020\n\010brokerId\030\002 \001(\003\022\016\n" +
+      "\006symbol\030\003 \001(\t\"G\n\024SubscriptionResponse\022/\n" +
+      "\022subscriptionResult\030\001 \003(\0132\023.Subscription" +
+      "Result\"Q\n\022SubscriptionResult\022\033\n\010contract" +
+      "\030\001 \001(\0132\t.Contract\022\r\n\005error\030\002 \001(\010\022\017\n\007mess" +
+      "age\030\003 \001(\tBK\n1com.smarttrader.broker.pric" +
+      "e.stresstest.dto.protoB\026SubscriptionStru" +
+      "cturesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3011,7 +3307,7 @@ public final class SubscriptionStructures {
     internal_static_SubscriptionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SubscriptionRequest_descriptor,
-        new java.lang.String[] { "Contract", });
+        new java.lang.String[] { "Tid", "Contract", });
     internal_static_Contract_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Contract_fieldAccessorTable = new

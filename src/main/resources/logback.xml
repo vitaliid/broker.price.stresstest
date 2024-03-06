@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="LOGS" value="./logs"/>
+
+    <appender name="Console"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %black(%d{ISO8601}) %highlight(%-5level) [%blue(%t)] %yellow(%C{1}): %msg%n%throwable
+            </Pattern>
+        </layout>
+
+<!--                <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">-->
+<!--                    <providers>-->
+<!--                        <mdc/>-->
+<!--                        <pattern>-->
+<!--                            <pattern>-->
+<!--                                {"message": "%X{correlationId} %message", "logger": "%logger", "level":-->
+<!--                                "%-5level", "thread": "%-5thread"}-->
+<!--                            </pattern>-->
+<!--                        </pattern>-->
+<!--                        <stackTrace>-->
+<!--                            <throwableConverter-->
+<!--                                    class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">-->
+<!--                                <maxDepthPerThrowable>30</maxDepthPerThrowable>-->
+<!--                                <maxLength>2048</maxLength>-->
+<!--                                <shortenedClassNameLength>20</shortenedClassNameLength>-->
+<!--                                <exclude>^sun\.reflect\..*\.invoke</exclude>-->
+<!--                                <exclude>^net\.sf\.cglib\.proxy\.MethodProxy\.invoke</exclude>-->
+<!--                                <rootCauseFirst>true</rootCauseFirst>-->
+<!--                            </throwableConverter>-->
+<!--                        </stackTrace>-->
+<!--                    </providers>-->
+<!--                </encoder>-->
+    </appender>
+
+    <!-- LOG everything at INFO level -->
+    <root level="info">
+        <appender-ref ref="Console"/>
+    </root>
+
+</configuration>

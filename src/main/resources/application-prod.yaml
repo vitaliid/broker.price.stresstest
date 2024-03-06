@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:oracle:thin:@stbqadev.c4gebpgnh17l.us-east-1.rds.amazonaws.com/STBQA
-    username: edforex231
-    password: XQdb6p8M
+    url: jdbc:oracle:thin:@smarttradersob-22.c4gebpgnh17l.us-east-1.rds.amazonaws.com:1521:SOB
+    username: EFOREX231
+    password: Y8agR2k2
 
 app:
   security:

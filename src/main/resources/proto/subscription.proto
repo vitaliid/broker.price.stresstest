@@ -3,7 +3,8 @@ option java_package = "com.smarttrader.broker.price.stresstest.dto.proto";
 option java_outer_classname = "SubscriptionStructures";
 
 message SubscriptionRequest{
-  repeated Contract contract = 1;
+  string   tid = 1;
+  repeated Contract contract = 2;
 }
 message Contract{
   int64     account = 1;

@@ -1,4 +1,17 @@
-subscriptions:
-  - brokerId: 382
-    account: 6069733
-    symbol: USDJPY
+subscription:
+  #formula for connection amount: page.size * (account.symbols/contracts)
+  contracts: 10 # per subscription request
+  accounts:
+    symbols: 10 # per account
+    page: # for efficient working when multiple instances
+      number: 0
+      size: 1000 # amount of accounts generally taken
+  throttling:
+    accounts: 200
+    seconds: 10
+  shuffle: false
+  hardcode:
+    enabled: false
+    symbol: EURUSD
+unsubscribe:
+  delay: 300 #seconds

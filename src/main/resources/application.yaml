@@ -1,15 +1,56 @@
 spring:
   application:
     name: com.smarttrader.broker.price.stresstest
-  config:
-    import: classpath:subscriptions.yaml
+  #config:
+    #import: classpath:subscriptions.yaml
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: [ "health","restart","prometheus","metrics" ]
+  endpoint:
+    health:
+      show-details: always
+    restart:
+      enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
 
 server:
   port: 8081
 app:
-  roles: >
-    TRADER
-  secret:
-    key: ${SECRET_KEY}
   security:
+    roles: >
+      TRADER
+    secret:
+      key: ${SECRET_KEY}
     token: ${SECURITY_TOKEN}
+  target: ${APP_TARGET}
+  silence-timeout-seconds: 60
+
+
+subscription:
+  #formula for connection amount: page.size * (account.symbols/contracts)
+  contracts: 10 # per subscription request
+  accounts:
+    symbols: 10 # per account
+    page: # for efficient working when multiple instances
+      number: 0
+      size: 1 # amount of accounts generally taken
+  throttling:
+    accounts: 200
+    seconds: 10
+  shuffle: false
+  hardcode:
+    enabled: false
+    symbol: EURUSD
+unsubscribe:
+  delay: 300 #seconds
